@@ -8,10 +8,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             xmlns:views="clr-namespace:XplatCollect.Views"
             mc:Ignorable="d"
-             x:Class="XplatCollect.Views.MainPage">
+             x:Class="XplatCollect.Views.MainPage"   xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    android:TabbedPage.ToolbarPlacement="Bottom" NavigationPage.HasNavigationBar="False">
     <TabbedPage.Children>
-        <views:NewCollectionPage Title="Create" />
-        <views:HomePage Title="Collections" />
-        <views:ProfilePage  Title="Profile"/>
+        <views:NewCollectionPage Title="Create" IconImageSource="icon.png" />
+        <views:HomePage Title="Collections" IconImageSource="icon.png"/>
+        <views:ProfilePage  Title="Profile" IconImageSource="icon.png"/>
     </TabbedPage.Children>
 </TabbedPage>
