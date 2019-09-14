@@ -9,10 +9,12 @@ namespace XplatCollect
 {
     public partial class App : PrismApplication
     {
-        public App() { }
+        public App() : this(null)
+        {
+        }
 
         public App(IPlatformInitializer platformInitializer)
-            : base(platformInitializer)
+            : base(platformInitializer, true)
         {
         }
 
@@ -25,7 +27,7 @@ namespace XplatCollect
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
+            containerRegistry.RegisterForNavigation<HomePage>();
         }
 
         protected override async void OnInitialized()
