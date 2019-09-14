@@ -31,6 +31,7 @@ namespace XplatCollect
             containerRegistry.RegisterForNavigation<HomePage>();
             containerRegistry.RegisterForNavigation<ProfilePage>();
             containerRegistry.RegisterForNavigation<NewCollectionPage>();
+            containerRegistry.RegisterForNavigation<CollectionPage>();
         }
 
         protected override async void OnInitialized()

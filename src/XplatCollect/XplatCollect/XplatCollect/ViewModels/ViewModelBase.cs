@@ -10,8 +10,8 @@ namespace XplatCollect.ViewModels
 {
     public abstract class ViewModelBase : BindableBase, IInitializeAsync
     {
-        private readonly INavigationService navigationService;
-        private readonly IPageDialogService pageDialogService;
+        protected readonly INavigationService navigationService;
+        protected readonly IPageDialogService pageDialogService;
 
         protected ViewModelBase(INavigationService navigationService
             , IPageDialogService pageDialogService)

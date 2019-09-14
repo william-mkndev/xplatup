@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage  
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
               prism:ViewModelLocator.AutowireViewModel="True"
     xmlns="http://xamarin.com/schemas/2014/forms"
@@ -10,10 +11,13 @@
              x:Class="XplatCollect.Views.HomePage" 
     Title="Collections">
     <ContentPage.Content>
-        <CollectionView>
+        <CollectionView
+            SelectionMode="Single"
+            SelectedItem="{Binding SeletedCollection}"
+            SelectionChangedCommand="{Binding ViewColletionCommand}">
             <CollectionView.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
-                    <x:String>Hot Wheels</x:String>
+                    <x:String>Hot Wheels asdadsas asdda asdsad sd</x:String>
                     <x:String>Action Figures</x:String>
                     <x:String>Coins</x:String>
                     <x:String>Caps</x:String>
@@ -22,13 +26,29 @@
                 </x:Array>
             </CollectionView.ItemsSource>
             <CollectionView.ItemsLayout>
-                <ListItemsLayout Orientation="Vertical" ItemSpacing="16" />
+                <ListItemsLayout Orientation="Vertical" />
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
-                        <Label Text="{Binding .}" />
-                    </Grid>
+                    <ContentView Padding="32, 16, 32, 16">
+                        <yummy:PancakeView  IsClippedToBounds="true"
+                                        CornerRadius="48"
+                                        BackgroundColor="Transparent"
+                         HeightRequest="272">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                             <Image Grid.Row="0" Aspect="AspectFill" Source="https://i.ytimg.com/vi/VfSqn5yQS1A/maxresdefault.jpg" />
+                                <BoxView Grid.Row="0" BackgroundColor="#000" Opacity="0.6" />
+                                <Label Grid.Row="0" Text="{Binding .}" TextColor="#FFFFFF"
+                               VerticalOptions="End" HorizontalOptions="Start" Margin="32"
+                               FontSize="22" 
+                               FontAttributes="Bold" 
+                               LineBreakMode="WordWrap"/>
+                        </Grid>
+                    </yummy:PancakeView>
+                    </ContentView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
