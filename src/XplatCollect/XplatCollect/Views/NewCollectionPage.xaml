@@ -1,13 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage 
-   xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-              prism:ViewModelLocator.AutowireViewModel="True" 
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+              prism:ViewModelLocator.AutowireViewModel="True"
     xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="XplatCollect.Views.ProfilePage">
+             x:Class="XplatCollect.Views.NewCollectionPage" Title="New Collection">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="Android, WinPhone">0</On>
+            <On Platform="iOS">0,36,0,0</On>
+        </OnPlatform>
+    </ContentPage.Padding>
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Welcome to Xamarin.Forms!"

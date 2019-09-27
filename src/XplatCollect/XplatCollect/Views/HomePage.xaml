@@ -10,6 +10,12 @@
              mc:Ignorable="d"
              x:Class="XplatCollect.Views.HomePage" 
     Title="Collections">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="Android, WinPhone">0</On>
+            <On Platform="iOS">0,36,0,0</On>
+        </OnPlatform>
+    </ContentPage.Padding>
     <ContentPage.Content>
         <CollectionView
             SelectionMode="Single"
@@ -17,7 +23,7 @@
             SelectionChangedCommand="{Binding ViewColletionCommand}">
             <CollectionView.ItemsSource>
                 <x:Array Type="{x:Type x:String}">
-                    <x:String>Hot Wheels asdadsas asdda asdsad sd</x:String>
+                    <x:String>Hot Wheels</x:String>
                     <x:String>Action Figures</x:String>
                     <x:String>Coins</x:String>
                     <x:String>Caps</x:String>
