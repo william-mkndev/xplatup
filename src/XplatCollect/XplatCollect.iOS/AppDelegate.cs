@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Prism;
+using Prism.Ioc;
 using UIKit;
 using Xamarin.Forms;
+using XplatCollect.iOS.Services;
+using XplatCollect.Services;
 
 namespace XplatCollect.iOS
 {
@@ -25,9 +29,17 @@ namespace XplatCollect.iOS
         {
             Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+            LoadApplication(new App(new iOSInitializer()));
 
             return base.FinishedLaunching(app, options);
+        }
+
+        public class iOSInitializer : IPlatformInitializer
+        {
+            public void RegisterTypes(IContainerRegistry containerRegistry)
+            {
+                containerRegistry.Register<IDataBaseAccessService, DataBaseAccessService>();
+            }
         }
     }
 }
