@@ -15,7 +15,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -106,7 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XplatCollect\XplatCollect.csproj">
-      <Project>{6524E329-5D1E-4AC1-8B06-7D4EAFFDD9AD}</Project>
+      <Project>{6E6B3CF3-B151-40A2-A7BA-3FDAAA339EE0}</Project>
       <Name>XplatCollect</Name>
     </ProjectReference>
   </ItemGroup>
