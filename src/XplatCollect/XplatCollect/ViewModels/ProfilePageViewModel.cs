@@ -26,8 +26,6 @@ namespace XplatCollect.ViewModels
                 .ObservesCanExecute(() => IsNotBusy);
         }
 
-
-
         private string name;
         public string Name
         {
@@ -102,10 +100,15 @@ namespace XplatCollect.ViewModels
 
         private async Task ExecuteCreateProfile()
         {
+            //TODO navegar para a página de cadastro, criar uma nova pessoa e retornar para tela de Profile.
+            // Explorar, navigation service \ go back
+            // Explorar inclusão de informações
+
+
             await ExecuteBusyAction(async () =>
             {
-                var person = Person.Create("Zé das cove"
-                    , "Já coloco", "");
+                var person = Person.Create("Zé das couves"
+                    , "Nascido nos Estados Unidos do Brasil e é uma das relíquias do Brasil.Ele encontrou a fonte da juventude passando pelo portal mágico da Pedreira Paulo Leminski", "https://www.mantelligence.com/wp-content/uploads/2017/10/Questions-To-Ask-Smile-or-eyes.jpg");
 
                 personService.Add(person);
 
