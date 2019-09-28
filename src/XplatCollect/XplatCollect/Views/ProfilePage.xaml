@@ -8,6 +8,7 @@
              xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:converters="clr-namespace:XplatCollect.Converters"
              mc:Ignorable="d"
+             BackgroundColor="#FFF"
              x:Class="XplatCollect.Views.ProfilePage"
              Title="Profile">
     <ContentPage.Resources>
