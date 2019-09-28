@@ -16,132 +16,146 @@
         </OnPlatform>
     </ContentPage.Padding>
     <ContentPage.Content>
-        <CollectionView SelectionMode="Single"
-                        Margin="0, 36, 0, 0"
-                        SelectedItem="{Binding SeletedCollection}"
-                        Header="{Binding .}"
-                        Footer="{Binding .}"
-                        SelectionChangedCommand="{Binding ViewColletionCommand}">
-            <CollectionView.HeaderTemplate>
-                <DataTemplate>
-                    <Grid RowSpacing="16"
-                          ColumnSpacing="32">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="24" />
-                            <RowDefinition Height="84" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="26" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="118" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0"
-                               Grid.ColumnSpan="2"
-                               Grid.Row="0"
-                               Text="John Doe"
-                               FontAttributes="Bold"
-                               FontSize="22"
-                               Margin="32, 0, 32, 0" />
-                        <!-- details -->
-                        <yummy:PancakeView Grid.Row="1"
-                                           Grid.Column="0"
-                                           Margin="32, 0, 0, 0"
-                                           CornerRadius="26"
-                                           VerticalOptions="Start"
-                                           HorizontalOptions="Start"
-                                           HeightRequest="86"
-                                           WidthRequest="86">
-                            <Image Aspect="AspectFill"
-                                   Source="https://www.mantelligence.com/wp-content/uploads/2017/10/Questions-To-Ask-Smile-or-eyes.jpg" />
-                        </yummy:PancakeView>
-                        <StackLayout Spacing="0"
-                                     Grid.Row="1"
-                                     Margin="0, 0, 32, 0"
-                                     Grid.Column="1">
-                            <Label LineBreakMode="WordWrap"
-                                   FontSize="16"
+        <StackLayout VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="FillAndExpand">
+            <Label Text="You dont have a profile yeat!"
+                   Margin="32, 0, 32, 0"
+                   HorizontalTextAlignment="Center" />
+            <Button Text="Create Profile Now"
+                    BackgroundColor="#000"
+                    Margin="32"
+                    CornerRadius="16"
+                    HeightRequest="64"
+                    TextColor="#FFF"
+                    Command="{Binding CreateProfileCommand}" />
+            <CollectionView IsVisible="{Binding HasProfile}"
+                            SelectionMode="Single"
+                            Margin="0, 36, 0, 0"
+                            SelectedItem="{Binding SeletedCollection}"
+                            Header="{Binding .}"
+                            Footer="{Binding .}"
+                            SelectionChangedCommand="{Binding ViewColletionCommand}">
+                <CollectionView.HeaderTemplate>
+                    <DataTemplate>
+                        <Grid RowSpacing="16"
+                              ColumnSpacing="32">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="24" />
+                                <RowDefinition Height="84" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="26" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="118" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0"
+                                   Grid.ColumnSpan="2"
+                                   Grid.Row="0"
+                                   Text="John Doe"
                                    FontAttributes="Bold"
-                                   Text="114" />
-                            <Label LineBreakMode="WordWrap"
-                                   FontSize="14"
-                                   Text="Collections" />
-                            <Label LineBreakMode="WordWrap"
-                                   Margin="0, 8, 0, 0"
-                                   FontSize="16"
-                                   FontAttributes="Bold"
-                                   Text="517" />
-                            <Label LineBreakMode="WordWrap"
-                                   FontSize="14"
-                                   Text="Itens" />
-                        </StackLayout>
-                        <!-- details -->
-                        <Label Margin="32, 0, 32, 0"
-                               Grid.Column="0"
-                               Grid.ColumnSpan="2"
-                               Grid.Row="2"
-                               LineBreakMode="WordWrap"
-                               FontSize="14"
-                               Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tempus aliquet fringilla. Sed consectetur purus viverra urna luctus, at tincidunt lectus tincidunt. Duis at dictum lacus. Vestibulum a lobortis metus. Nullam non sagittis ipsum. Curabitur eget sodales ligula. Nunc eget egestas elit, at sodales lacus" />
-                        <Label Grid.Column="0"
-                               Grid.ColumnSpan="2"
-                               Grid.Row="3"
-                               Text="My Collections"
-                               FontAttributes="Bold"
-                               FontSize="22"
-                               Margin="32, 0, 32, 0" />
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.HeaderTemplate>
-            <CollectionView.FooterTemplate>
-                <DataTemplate>
-                    <BoxView HeightRequest="1" />
-                </DataTemplate>
-            </CollectionView.FooterTemplate>
-            <CollectionView.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>Hot Wheels</x:String>
-                    <x:String>Action Figures</x:String>
-                    <x:String>Coins</x:String>
-                    <x:String>Caps</x:String>
-                    <x:String>Magic</x:String>
-                    <x:String>Post cards</x:String>
-                </x:Array>
-            </CollectionView.ItemsSource>
-            <CollectionView.ItemsLayout>
-                <ListItemsLayout Orientation="Vertical" />
-            </CollectionView.ItemsLayout>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <ContentView Padding="32, 16, 32, 16">
-                        <yummy:PancakeView  IsClippedToBounds="true"
-                                            CornerRadius="48"
-                                            BackgroundColor="Transparent"
-                                            HeightRequest="272">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*" />
-                                </Grid.RowDefinitions>
-                                <Image Grid.Row="0"
-                                       Aspect="AspectFill"
-                                       Source="https://i.ytimg.com/vi/VfSqn5yQS1A/maxresdefault.jpg" />
-                                <BoxView Grid.Row="0"
-                                         BackgroundColor="#000"
-                                         Opacity="0.6" />
-                                <Label Grid.Row="0"
-                                       Text="{Binding .}"
-                                       TextColor="#FFFFFF"
-                                       VerticalOptions="End"
-                                       HorizontalOptions="Start"
-                                       Margin="32"
-                                       FontSize="22"
+                                   FontSize="22"
+                                   Margin="32, 0, 32, 0" />
+                            <!-- details -->
+                            <yummy:PancakeView Grid.Row="1"
+                                               Grid.Column="0"
+                                               Margin="32, 0, 0, 0"
+                                               CornerRadius="26"
+                                               VerticalOptions="Start"
+                                               HorizontalOptions="Start"
+                                               HeightRequest="86"
+                                               WidthRequest="86">
+                                <Image Aspect="AspectFill"
+                                       Source="https://www.mantelligence.com/wp-content/uploads/2017/10/Questions-To-Ask-Smile-or-eyes.jpg" />
+                            </yummy:PancakeView>
+                            <StackLayout Spacing="0"
+                                         Grid.Row="1"
+                                         Margin="0, 0, 32, 0"
+                                         Grid.Column="1">
+                                <Label LineBreakMode="WordWrap"
+                                       FontSize="16"
                                        FontAttributes="Bold"
-                                       LineBreakMode="WordWrap" />
-                            </Grid>
-                        </yummy:PancakeView>
-                    </ContentView>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                                       Text="114" />
+                                <Label LineBreakMode="WordWrap"
+                                       FontSize="14"
+                                       Text="Collections" />
+                                <Label LineBreakMode="WordWrap"
+                                       Margin="0, 8, 0, 0"
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       Text="517" />
+                                <Label LineBreakMode="WordWrap"
+                                       FontSize="14"
+                                       Text="Itens" />
+                            </StackLayout>
+                            <!-- details -->
+                            <Label Margin="32, 0, 32, 0"
+                                   Grid.Column="0"
+                                   Grid.ColumnSpan="2"
+                                   Grid.Row="2"
+                                   LineBreakMode="WordWrap"
+                                   FontSize="14"
+                                   Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer tempus aliquet fringilla. Sed consectetur purus viverra urna luctus, at tincidunt lectus tincidunt. Duis at dictum lacus. Vestibulum a lobortis metus. Nullam non sagittis ipsum. Curabitur eget sodales ligula. Nunc eget egestas elit, at sodales lacus" />
+                            <Label Grid.Column="0"
+                                   Grid.ColumnSpan="2"
+                                   Grid.Row="3"
+                                   Text="My Collections"
+                                   FontAttributes="Bold"
+                                   FontSize="22"
+                                   Margin="32, 0, 32, 0" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.HeaderTemplate>
+                <CollectionView.FooterTemplate>
+                    <DataTemplate>
+                        <BoxView HeightRequest="1" />
+                    </DataTemplate>
+                </CollectionView.FooterTemplate>
+                <CollectionView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Hot Wheels</x:String>
+                        <x:String>Action Figures</x:String>
+                        <x:String>Coins</x:String>
+                        <x:String>Caps</x:String>
+                        <x:String>Magic</x:String>
+                        <x:String>Post cards</x:String>
+                    </x:Array>
+                </CollectionView.ItemsSource>
+                <CollectionView.ItemsLayout>
+                    <ListItemsLayout Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView Padding="32, 16, 32, 16">
+                            <yummy:PancakeView  IsClippedToBounds="true"
+                                                CornerRadius="48"
+                                                BackgroundColor="Transparent"
+                                                HeightRequest="272">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.Row="0"
+                                           Aspect="AspectFill"
+                                           Source="https://i.ytimg.com/vi/VfSqn5yQS1A/maxresdefault.jpg" />
+                                    <BoxView Grid.Row="0"
+                                             BackgroundColor="#000"
+                                             Opacity="0.6" />
+                                    <Label Grid.Row="0"
+                                           Text="{Binding .}"
+                                           TextColor="#FFFFFF"
+                                           VerticalOptions="End"
+                                           HorizontalOptions="Start"
+                                           Margin="32"
+                                           FontSize="22"
+                                           FontAttributes="Bold"
+                                           LineBreakMode="WordWrap" />
+                                </Grid>
+                            </yummy:PancakeView>
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

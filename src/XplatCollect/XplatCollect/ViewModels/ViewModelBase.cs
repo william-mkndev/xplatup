@@ -1,4 +1,5 @@
-﻿using Prism.Mvvm;
+﻿using Prism;
+using Prism.Mvvm;
 using Prism.Navigation;
 using Prism.Services;
 using System;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace XplatCollect.ViewModels
 {
-    public abstract class ViewModelBase : BindableBase, IInitializeAsync
+    public abstract class ViewModelBase : BindableBase, IInitializeAsync, IActiveAware
     {
         protected readonly INavigationService navigationService;
         protected readonly IPageDialogService pageDialogService;
@@ -18,6 +19,7 @@ namespace XplatCollect.ViewModels
         {
             this.navigationService = navigationService;
             this.pageDialogService = pageDialogService;
+            IsActiveChanged += OnIsActiveChanged;
         }
 
         private bool isBusy;
@@ -28,6 +30,29 @@ namespace XplatCollect.ViewModels
         }
 
         public bool IsNotBusy => !IsBusy;
+
+        public event EventHandler IsActiveChanged;
+
+        private bool isActive;
+        public bool IsActive
+        {
+            get { return isActive; }
+            set { SetProperty(ref isActive, value, RaiseIsActiveChanged); }
+        }
+
+        private void RaiseIsActiveChanged()
+            => IsActiveChanged?.Invoke(this, EventArgs.Empty);
+
+        private async void OnIsActiveChanged(object sender, EventArgs e)
+        {
+            if (IsActive)
+            {
+                await OnTabActive();
+            }
+        }
+
+        protected virtual Task OnTabActive()
+            => Task.CompletedTask;
 
         public virtual Task InitializeAsync(INavigationParameters parameters)
             => Task.CompletedTask;
