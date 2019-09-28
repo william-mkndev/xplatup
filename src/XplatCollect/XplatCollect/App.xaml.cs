@@ -36,6 +36,8 @@ namespace XplatCollect
             containerRegistry.RegisterForNavigation<CollectionPage>();
 
             containerRegistry.Register<IDataBaseService<Collection>, DataBaseService<Collection>>();
+            containerRegistry.Register<IDataBaseService<Person>, DataBaseService<Person>>();
+            containerRegistry.Register<IPersonService, PersonService>();
         }
 
         protected override async void OnInitialized()
